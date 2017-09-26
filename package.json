@@ -1,0 +1,33 @@
+{
+  "name": "charto-render",
+  "version": "0.0.1",
+  "description": "Geodata renderer",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "tsc": "tsc",
+    "prepublish": "tsc -p src"
+  },
+  "author": "Juha Järvi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charto/charto-render.git"
+  },
+  "bugs": {
+    "url": "https://github.com/charto/charto-render/issues"
+  },
+  "homepage": "https://github.com/charto/charto-render#readme",
+  "keywords": [
+    "gis",
+    "canvas"
+  ],
+  "devDependencies": {
+    "@types/node": "^8.0.28",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "charto-model": "0.0.1",
+    "geobabel": "0.0.5"
+  }
+}
