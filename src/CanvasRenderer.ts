@@ -3,27 +3,29 @@
 
 import { BBox, Layer, LayerFeatures } from 'charto-model';
 
+export interface CanvasRendererOptions {
+	canvas: HTMLCanvasElement;
+	features: LayerFeatures;
+	bbox: BBox;
+	pixelWidth: number;
+	pixelHeight: number;
+	zoom?: number;
+}
+
 export class CanvasRenderer {
 
-	render(
-		canvas: HTMLCanvasElement,
-		features: LayerFeatures,
-		bbox: BBox,
-		pixelWidth: number,
-		pixelHeight: number,
-		zoom?: number
-	) {
-		const gc = canvas.getContext('2d')!;
+	render(options: CanvasRendererOptions) {
+		const gc = options.canvas.getContext('2d')!;
 
 		gc.beginPath();
-		gc.rect(0, 0, pixelWidth, pixelHeight);
+		gc.rect(0, 0, options.pixelWidth, options.pixelHeight);
 		gc.lineWidth = 2;
 		gc.strokeStyle = '#000000';
 		gc.stroke();
 
 		gc.font = '20px sans-serif';
 		gc.fillStyle = '#000000';
-		gc.fillText(bbox.s + ' / ' + bbox.w + ' / ' + zoom, 0, 16);
+		gc.fillText(options.bbox.s + ' / ' + options.bbox.w + ' / ' + options.zoom, 0, 16);
 	}
 
 }
